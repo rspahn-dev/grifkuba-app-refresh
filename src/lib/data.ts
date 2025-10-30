@@ -113,15 +113,15 @@ export async function getArticle(wikiId: string, articleSlug: string): Promise<A
         }
 
         const wikitext = data.parse.wikitext['*'];
-        const parsed = wtf(wikitext);
-        let htmlContent = parsed.html();
+        const doc = wtf(wikitext);
+        let htmlContent = doc.text();
 
         // Make links relative to our app structure
         htmlContent = htmlContent.replace(new RegExp(`href="/`, 'g'), `href="${wiki.baseUrl}/`);
         htmlContent = htmlContent.replace(new RegExp(`href="${wiki.baseUrl}/wiki/`, 'g'), `href="/wiki/${wiki.id}/`);
 
 
-        const leadImage = parsed.images()?.[0]?.url();
+        const leadImage = doc.image()?.url();
 
         return {
             title: data.parse.title,
