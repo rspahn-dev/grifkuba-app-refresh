@@ -41,7 +41,7 @@ export default async function WikiArticlePage({ params }: { params: { wikiId: st
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                    <BreadcrumbPage>{article.title || articleSlug.replace(/_/g, ' ')}</BreadcrumbPage>
+                    <BreadcrumbPage>{article?.title || articleSlug.replace(/_/g, ' ')}</BreadcrumbPage>
                 </BreadcrumbItem>
             </BreadcrumbList>
         </Breadcrumb>
