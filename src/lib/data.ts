@@ -98,8 +98,7 @@ export async function getArticle(wikiId: string, articleSlug: string): Promise<A
     try {
         const response = await fetch(`${wiki.apiUrl}?${params.toString()}`);
         if (!response.ok) {
-            console.error('Network response was not ok');
-            return null;
+            throw new Error('Network response was not ok');
         }
         const data = await response.json();
 
