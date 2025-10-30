@@ -8,7 +8,7 @@ const wikis: Wiki[] = [
     id: 'lylat-wiki',
     name: 'Lylat Wiki',
     baseUrl: 'https://starfoxwiki.info',
-    apiUrl: 'https://starfoxwiki.info/api.php',
+    apiUrl: 'https://starfoxwiki.info/w/api.php',
     mainPage: 'Lylat_Wiki',
   },
   {
@@ -29,14 +29,14 @@ const wikis: Wiki[] = [
     id: 'inkipedia',
     name: 'Inkipedia',
     baseUrl: 'https://splatoonwiki.org',
-    apiUrl: 'https://splatoonwiki.org/api.php',
+    apiUrl: 'https://splatoonwiki.org/w/api.php',
     mainPage: 'Main_Page',
   },
   {
     id: 'mega-man-wiki',
     name: 'Mega Man Wiki',
     baseUrl: 'https://megamanwiki.com',
-    apiUrl: 'https://megamanwiki.com/api.php',
+    apiUrl: 'https://megamanwiki.com/w/api.php',
     mainPage: 'Main_Page',
   },
 ];
