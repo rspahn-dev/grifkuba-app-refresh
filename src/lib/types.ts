@@ -27,7 +27,9 @@ export type Message = {
 
 export type Article = {
     title: string;
+    description?: string;
     leadImage?: string;
     leadImageHint?: string;
     content: string;
+    error?: string;
 }

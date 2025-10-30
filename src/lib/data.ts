@@ -84,14 +84,17 @@ export async function getWikiById(id: string): Promise<Wiki | undefined> {
   return Promise.resolve(wikis.find(w => w.id === id));
 }
 
-// Helper function to convert relative URLs to absolute URLs
-function convertToAbsoluteUrls(html: string, baseUrl: string): string {
-    return html.replace(/href="\/wiki\//g, `href="/wiki/${baseUrl.split('/').pop()?.split('.')[0]}/`);
-}
-
-export async function getArticle(wikiId: string, articleSlug: string): Promise<Article | null> {
+export async function getArticle(wikiId: string, articleSlug: string): Promise<Article> {
     const wiki = await getWikiById(wikiId);
-    if (!wiki) return null;
+    const title = articleSlug.replace(/_/g, ' ');
+
+    if (!wiki) {
+      return {
+        title,
+        content: '',
+        error: `Wiki with ID "${wikiId}" not found.`,
+      };
+    }
 
     const params = new URLSearchParams({
         action: 'parse',
@@ -104,17 +107,12 @@ export async function getArticle(wikiId: string, articleSlug: string): Promise<A
     try {
         const response = await fetch(`${wiki.apiUrl}?${params.toString()}`);
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error(`Network response was not ok (${response.status})`);
         }
         const data = await response.json();
 
         if (data.error) {
-            console.error('API Error:', data.error.info);
-            // Return a simple article indicating the page doesn't exist.
-            return {
-                title: articleSlug.replace(/_/g, ' '),
-                content: `<p>This page does not exist on ${wiki.name}.</p>`,
-            };
+            throw new Error(data.error.info);
         }
 
         const wikitext = data.parse.wikitext['*'];
@@ -125,29 +123,29 @@ export async function getArticle(wikiId: string, articleSlug: string): Promise<A
         htmlContent = htmlContent.replace(new RegExp(`href="/`, 'g'), `href="${wiki.baseUrl}/`);
         htmlContent = htmlContent.replace(new RegExp(`href="${wiki.baseUrl}/wiki/`, 'g'), `href="/wiki/${wiki.id}/`);
 
-
         const leadImage = doc.image()?.url();
 
         return {
             title: data.parse.title,
+            description: doc.sentences(0)?.text(),
             leadImage: leadImage,
             leadImageHint: leadImage ? 'gameplay screenshot' : undefined,
             content: htmlContent,
         };
 
-    } catch (error) {
+    } catch (error: any) {
         console.error("Failed to fetch article:", error);
-        // Fallback to mock data on error
-        const title = articleSlug.replace(/_/g, ' ');
-        const dynamicImageUrl = `https://picsum.photos/seed/${wikiId}-${articleSlug}/800/400`;
         return {
             title: title,
-            leadImage: dynamicImageUrl,
+            leadImage: `https://picsum.photos/seed/${wikiId}-${articleSlug}/800/400`,
             leadImageHint: leadImagePlaceholder?.imageHint,
             content: `
-                <p>Could not fetch article content for <strong>${title}</strong> from ${wiki.name}. Displaying mock content instead.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.</p>
-            `
+                <p>This is a template for a wiki article page. In a real scenario, this content would be fetched from the wiki's API.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
+                <h2>Subsection Title</h2>
+                <p>Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue.</p>
+            `,
+            error: error.message || "An unknown error occurred while fetching the article."
         }
     }
 }
