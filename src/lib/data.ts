@@ -106,6 +106,15 @@ export async function getArticle(wikiId: string, articleSlug: string): Promise<A
 
     try {
         const response = await fetch(`${wiki.apiUrl}?${params.toString()}`);
+        
+        if (!response.ok) {
+            return {
+                title: title,
+                content: '',
+                error: `Network response was not ok (${response.status}). The article might not exist.`,
+            };
+        }
+
         const data = await response.json();
 
         if (data.error) {
@@ -116,13 +125,6 @@ export async function getArticle(wikiId: string, articleSlug: string): Promise<A
             };
         }
 
-        if (!response.ok) {
-            return {
-                title: title,
-                content: '',
-                error: `Network response was not ok (${response.status}). The article might not exist.`,
-            };
-        }
 
         const wikitext = data.parse.wikitext['*'];
         const doc = wtf(wikitext);
