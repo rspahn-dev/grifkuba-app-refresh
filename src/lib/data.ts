@@ -1,5 +1,6 @@
 import type { Wiki, Ticket, Article, Message } from '@/lib/types';
 import { PlaceHolderImages } from './placeholder-images';
+import wtf from 'wtf_wikipedia';
 
 // Mock data to simulate Firestore
 const wikis: Wiki[] = [
@@ -77,24 +78,72 @@ export async function getWikiById(id: string): Promise<Wiki | undefined> {
   return Promise.resolve(wikis.find(w => w.id === id));
 }
 
+// Helper function to convert relative URLs to absolute URLs
+function convertToAbsoluteUrls(html: string, baseUrl: string): string {
+    return html.replace(/href="\/wiki\//g, `href="/wiki/${baseUrl.split('/').pop()?.split('.')[0]}/`);
+}
+
 export async function getArticle(wikiId: string, articleSlug: string): Promise<Article | null> {
-    // This is a mock. In a real app, you would fetch from the MediaWiki API.
     const wiki = await getWikiById(wikiId);
     if (!wiki) return null;
 
-    const title = articleSlug.replace(/_/g, ' ');
-    const dynamicImageUrl = `https://picsum.photos/seed/${wikiId}-${articleSlug}/800/400`;
+    const params = new URLSearchParams({
+        action: 'parse',
+        page: articleSlug,
+        prop: 'wikitext|images',
+        format: 'json',
+        origin: '*', // Necessary for CORS
+    });
 
-    return {
-        title: title,
-        leadImage: dynamicImageUrl,
-        leadImageHint: leadImagePlaceholder?.imageHint,
-        content: `
-            <p>This is mock article content for <strong>${title}</strong> from ${wiki.name}.</p>
-            <p>In a real application, this content would be fetched from the MediaWiki API and parsed for native display. Internal links would be handled to navigate within the app.</p>
-            <p>For example, here is a link to another page: <a href="/wiki/${wikiId}/Another_Page">Another Page</a>.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.</p>
-        `
+    try {
+        const response = await fetch(`${wiki.apiUrl}?${params.toString()}`);
+        if (!response.ok) {
+            console.error('Network response was not ok');
+            return null;
+        }
+        const data = await response.json();
+
+        if (data.error) {
+            console.error('API Error:', data.error.info);
+            // Return a simple article indicating the page doesn't exist.
+            return {
+                title: articleSlug.replace(/_/g, ' '),
+                content: `<p>This page does not exist on ${wiki.name}.</p>`,
+            };
+        }
+
+        const wikitext = data.parse.wikitext['*'];
+        const parsed = wtf(wikitext);
+        let htmlContent = parsed.html();
+
+        // Make links relative to our app structure
+        htmlContent = htmlContent.replace(new RegExp(`href="/`, 'g'), `href="${wiki.baseUrl}/`);
+        htmlContent = htmlContent.replace(new RegExp(`href="${wiki.baseUrl}/wiki/`, 'g'), `href="/wiki/${wiki.id}/`);
+
+
+        const leadImage = parsed.images()?.[0]?.url();
+
+        return {
+            title: data.parse.title,
+            leadImage: leadImage,
+            leadImageHint: leadImage ? 'gameplay screenshot' : undefined,
+            content: htmlContent,
+        };
+
+    } catch (error) {
+        console.error("Failed to fetch article:", error);
+        // Fallback to mock data on error
+        const title = articleSlug.replace(/_/g, ' ');
+        const dynamicImageUrl = `https://picsum.photos/seed/${wikiId}-${articleSlug}/800/400`;
+        return {
+            title: title,
+            leadImage: dynamicImageUrl,
+            leadImageHint: leadImagePlaceholder?.imageHint,
+            content: `
+                <p>Could not fetch article content for <strong>${title}</strong> from ${wiki.name}. Displaying mock content instead.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.</p>
+            `
+        }
     }
 }
 
