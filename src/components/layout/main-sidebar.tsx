@@ -17,7 +17,8 @@ import {
   LifeBuoy,
   Heart,
   ChevronDown,
-  ExternalLink
+  ExternalLink,
+  Home,
 } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { GrifkubaLogo } from './grifkuba-logo';
@@ -79,6 +80,15 @@ export async function MainSidebar() {
       </SidebarContent>
       <SidebarFooter>
         <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild tooltip="Main Site">
+                <a href="https://grifkuba.net/" target="_blank" rel="noopener noreferrer">
+                    <Home />
+                    <span>Main Site</span>
+                    <ExternalLink className="ml-auto group-data-[collapsible=icon]:hidden" />
+                </a>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
           <Collapsible>
             <CollapsibleTrigger asChild>
                 <SidebarMenuButton tooltip="Support Us">
