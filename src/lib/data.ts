@@ -28,6 +28,12 @@ const wikis: Wiki[] = [
     baseUrl: 'https://splatoonwiki.org',
     apiUrl: 'https://splatoonwiki.org/api.php',
   },
+  {
+    id: 'mega-man-wiki',
+    name: 'Mega Man Wiki',
+    baseUrl: 'https://megamanwiki.com',
+    apiUrl: 'https://megamanwiki.com/api.php',
+  },
 ];
 
 let tickets: Ticket[] = [
