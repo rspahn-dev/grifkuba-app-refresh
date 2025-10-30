@@ -36,7 +36,7 @@ export default async function WikiArticlePage({ params }: { params: { wikiId: st
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                      <BreadcrumbLink asChild>
-                        <Link href={`/wiki/${wiki.id}/Main_Page`}>{wiki.name}</Link>
+                        <Link href={`/wiki/${wiki.id}/${wiki.mainPage}`}>{wiki.name}</Link>
                     </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />

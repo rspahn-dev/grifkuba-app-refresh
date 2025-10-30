@@ -91,7 +91,7 @@ export async function MainSidebar() {
                     {wikis.map((wiki) => (
                         <SidebarMenuItem key={wiki.id}>
                             <SidebarMenuButton asChild>
-                                <Link href={`/wiki/${wiki.id}/Main_Page`}>
+                                <Link href={`/wiki/${wiki.id}/${wiki.mainPage}`}>
                                     <span>{wiki.name}</span>
                                 </Link>
                             </SidebarMenuButton>

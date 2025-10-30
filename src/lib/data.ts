@@ -9,30 +9,35 @@ const wikis: Wiki[] = [
     name: 'Lylat Wiki',
     baseUrl: 'https://starfoxwiki.info',
     apiUrl: 'https://starfoxwiki.info/api.php',
+    mainPage: 'Lylat_Wiki',
   },
   {
     id: 'pikipedia',
     name: 'Pikipedia',
     baseUrl: 'https://www.pikminwiki.com',
     apiUrl: 'https://www.pikminwiki.com/api.php',
+    mainPage: 'Main_Page',
   },
   {
     id: 'ssb-wiki',
     name: 'Super Smash Bros. Wiki',
     baseUrl: 'https://www.ssbwiki.com',
     apiUrl: 'https://www.ssbwiki.com/api.php',
+    mainPage: 'Main_Page',
   },
   {
     id: 'inkipedia',
     name: 'Inkipedia',
     baseUrl: 'https://splatoonwiki.org',
     apiUrl: 'https://splatoonwiki.org/api.php',
+    mainPage: 'Main_Page',
   },
   {
     id: 'mega-man-wiki',
     name: 'Mega Man Wiki',
     baseUrl: 'https://megamanwiki.com',
     apiUrl: 'https://megamanwiki.com/api.php',
+    mainPage: 'Main_Page',
   },
 ];
 

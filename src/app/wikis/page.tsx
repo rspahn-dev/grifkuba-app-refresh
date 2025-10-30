@@ -24,7 +24,7 @@ export default async function WikisPage() {
                             </CardHeader>
                             <CardContent className="flex-grow flex items-end">
                                  <Button asChild className="w-full">
-                                    <Link href={`/wiki/${wiki.id}/Main_Page`}>
+                                    <Link href={`/wiki/${wiki.id}/${wiki.mainPage}`}>
                                         <BookOpen className="mr-2 h-4 w-4" />
                                         Visit Wiki
                                     </Link>

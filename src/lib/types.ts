@@ -3,6 +3,7 @@ export type Wiki = {
   name: string;
   baseUrl: string;
   apiUrl: string;
+  mainPage: string;
 };
 
 export type Ticket = {
