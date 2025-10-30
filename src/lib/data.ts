@@ -106,13 +106,22 @@ export async function getArticle(wikiId: string, articleSlug: string): Promise<A
 
     try {
         const response = await fetch(`${wiki.apiUrl}?${params.toString()}`);
-        if (!response.ok) {
-            throw new Error(`Network response was not ok (${response.status})`);
-        }
         const data = await response.json();
 
         if (data.error) {
-            throw new Error(data.error.info);
+             return {
+                title: title,
+                content: '',
+                error: `Could not find article: ${data.error.info}`,
+            };
+        }
+
+        if (!response.ok) {
+            return {
+                title: title,
+                content: '',
+                error: `Network response was not ok (${response.status}). The article might not exist.`,
+            };
         }
 
         const wikitext = data.parse.wikitext['*'];
