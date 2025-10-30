@@ -19,6 +19,7 @@ import {
   ChevronDown,
   ExternalLink,
   Home,
+  BookCopy,
 } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { GrifkubaLogo } from './grifkuba-logo';
@@ -66,16 +67,39 @@ export async function MainSidebar() {
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarSeparator />
-          {wikis.map((wiki) => (
-            <SidebarMenuItem key={wiki.id}>
-              <SidebarMenuButton asChild tooltip={wiki.name}>
-                <Link href={`/wiki/${wiki.id}/Main_Page`}>
-                    <BookOpen />
-                    <span>{wiki.name}</span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          ))}
+          <Collapsible>
+            <CollapsibleTrigger asChild>
+                <SidebarMenuButton tooltip="Wikis">
+                    <BookCopy />
+                    <span>Wikis</span>
+                    <span className="ml-auto group-data-[collapsible=icon]:hidden">
+                        <ChevronDown className="h-4 w-4" />
+                    </span>
+                </SidebarMenuButton>
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+                <SidebarMenu className="py-1 ml-4 border-l border-border group-data-[collapsible=icon]:hidden">
+                    <SidebarMenuItem>
+                        <SidebarMenuButton asChild>
+                            <Link href="/wikis">
+                                <BookOpen />
+                                <span>All Wikis</span>
+                            </Link>
+                        </SidebarMenuButton>
+                    </SidebarMenuItem>
+                    <SidebarSeparator className="my-1"/>
+                    {wikis.map((wiki) => (
+                        <SidebarMenuItem key={wiki.id}>
+                            <SidebarMenuButton asChild>
+                                <Link href={`/wiki/${wiki.id}/Main_Page`}>
+                                    <span>{wiki.name}</span>
+                                </Link>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>
+                    ))}
+                </SidebarMenu>
+            </CollapsibleContent>
+          </Collapsible>
         </SidebarMenu>
       </SidebarContent>
       <SidebarFooter>

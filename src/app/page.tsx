@@ -23,7 +23,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="font-bold">
-              <Link href="/wiki/lylat-wiki/Main_Page">
+              <Link href="/wikis">
                 <BookOpen className="mr-2" />
                 Explore Wikis
               </Link>
