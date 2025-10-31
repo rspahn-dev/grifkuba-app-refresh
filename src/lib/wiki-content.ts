@@ -184,5 +184,3 @@ const localArticles: { [wikiId: string]: { [articleSlug: string]: Article } } = 
 export function getLocalArticle(wikiId: string, articleSlug: string): Article | undefined {
   return localArticles[wikiId]?.[articleSlug];
 }
-
-    
