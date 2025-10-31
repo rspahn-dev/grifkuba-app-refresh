@@ -4,6 +4,7 @@ export type Wiki = {
   baseUrl: string;
   apiUrl: string;
   mainPage: string;
+  logo?: string;
 };
 
 export type Ticket = {
