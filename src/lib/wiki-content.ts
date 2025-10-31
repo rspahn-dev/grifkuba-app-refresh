@@ -82,6 +82,68 @@ const localArticles: { [wikiId: string]: { [articleSlug: string]: Article } } = 
             </div>
         </div>
       `
+    },
+    "Classic_series": {
+        "title": "Classic series",
+        "content": `
+            <p>The <strong>Classic series</strong> is a fan-made term referring to media set in the fictional universe of the original Mega Man game, released in 1987 for the Nintendo Entertainment System and Famicom. It is the first series of the universe's original timeline, set in the year 20XX, chronicling the adventures of the robot Mega Man and his battles to stop the evil Dr. Wily.</p>
+            <p>In official Capcom material, this series is often called simply <em>Mega Man</em> or the <em>Mega Man series</em>, differentiating it from the other series by omitting any further identifiers. It is only rarely referred to as <em>Mega Man Classic</em>, using the fan-made name.</p>
+            
+            <h2>Timeline</h2>
+            <h3>Prologue</h3>
+            <p>Around the year 200X (the first decade of the 21st century), the technology of robots advanced. Two prodigious young scientists, Thomas Light and Albert Wily, met while attending the Robot Institute of Technology. However, a rift formed between the two when Dr. Light opposed Dr. Wily's controversial research. Dr. Light went on to build robots for the good of mankind. He created two siblings named Rock and Roll to assist him at his lab, along with at least six other robots called Robot Masters to operate in industrial capacities. However, Dr. Wily had more selfish plans for his knowledge of robotics.</p>
+            
+            <h3>Mega Man</h3>
+            <p>One day, Dr. Wily kidnapped Dr. Light's Robot Masters and reprogrammed them into his servants to take over the world. Rock volunteered to be converted into a fighting robot to stop Wily's plot, and Dr. Light agreed, turning him into Mega Man. After defeating all the Robot Masters and infiltrating Dr. Wily's hideout, Mega Man destroyed his work and stopped his plans. Wily escaped and disappeared, while Mega Man returned home victorious.</p>
+            
+            <h3>Mega Man 2</h3>
+            <p>One year after his previous defeat, Dr. Wily returns with eight of his own new Robot Masters to take over the world again. He challenges Mega Man, who heads out to fight these new opponents. Mega Man defeats Dr. Wily and his Robot Masters again. The doctor uses holograms in an attempt to trick Mega Man into believing he was an Alien all along, but this fails. Mega Man departs, having proved Wily wrong once again.</p>
+
+            <h3>Mega Man: Dr. Wily's Revenge</h3>
+            <p>Set after <em>Mega Man 2</em>. Despite his crushing defeat, Dr. Wily quickly took his revenge by reprogramming Dr. Light's industrial Robot Masters again. Mega Man set off to set them right once more. After facing Dr. Wily's own robots, including the new Mega Man Killer called Enker, Mega Man defeated Wily and put a stop to his plans.</p>
+            
+            <h3>Mega Man 3</h3>
+            <p>The year is 20XX (further in the 21st century). Having apparently learned his lesson, Dr. Wily forms a truce with Dr. Light. Together they build Gamma, a giant peace-keeping robot, and plan to power him using eight Energy Elements discovered on other planets. However, the eight Robot Masters sent to retrieve them go haywire, and so Mega Man is sent to stop their madness. Meanwhile, a mysterious robot called Proto Man begins hunting Mega Man.</p>
+            <p>In the end, Dr. Wily reveals his true evil intentions and hijacks Gamma, planning to use him to conquer the world. Mega Man destroys Gamma, but the base begins to collapse. Proto Man arrives and saves Mega Man, but Dr. Wily appears to be lost in the rubble.</p>
+
+            <h3>Mega Man II (Game Boy)</h3>
+            <p>Set after <em>Mega Man 3</em>. Frustrated by his constant defeats, Dr. Wily steals the experimental Time Skimmer in hopes of traveling to the past to change history. Mega Man heads out to fight Wily's Robot Masters and stop him before it's too late. However, Wily discovered that the Time Skipper could only go forward in time and back to the present; changing plans, he kidnapped Mega Man from an alternate future and converted him into a twisted robot named Quint. Mega Man fights Quint, defeats Wily in space, and destroys the Time Skimmer.</p>
+            
+            <h2>Subseries</h2>
+            <h3>Mainline Games</h3>
+            <!-- This would be a table -->
+            <p><i>Table of mainline games to be added here.</i></p>
+
+            <h3>"Mega Man World" subseries</h3>
+            <p><i>Table of Mega Man World games to be added here.</i></p>
+
+            <h3>"Mega Man & Bass" subseries</h3>
+            <p><i>Table of Mega Man & Bass games to be added here.</i></p>
+            
+            <h2>Characters</h2>
+            <ul>
+                <li>Mega Man</li>
+                <li>Dr. Light</li>
+                <li>Dr. Wily</li>
+                <li>Proto Man</li>
+                <li>Rush</li>
+                <li>Bass</li>
+                <li>Treble</li>
+                <li>Roll</li>
+                <li>Dr. Cossack</li>
+                <li>Kalinka</li>
+                <li>Duo</li>
+            </ul>
+
+            <h2>Other Media</h2>
+            <ul>
+                <li>Captain N: The Game Master</li>
+                <li>Mega Man (animated series)</li>
+                <li>Archie Comics</li>
+                <li>Fully Charged</li>
+                <li>Nintendo Power Magazines</li>
+            </ul>
+        `
     }
   }
 };
@@ -89,3 +151,5 @@ const localArticles: { [wikiId: string]: { [articleSlug: string]: Article } } = 
 export function getLocalArticle(wikiId: string, articleSlug: string): Article | undefined {
   return localArticles[wikiId]?.[articleSlug];
 }
+
+    
