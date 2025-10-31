@@ -1,4 +1,4 @@
-import type { Wiki, Ticket, Article, Message } from '@/lib/types';
+import type { Wiki, Ticket, Article, Message } from './types';
 import { PlaceHolderImages } from './placeholder-images';
 import { getLocalArticle } from './wiki-content';
 
