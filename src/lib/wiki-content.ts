@@ -109,17 +109,6 @@ const localArticles: { [wikiId: string]: { [articleSlug: string]: Article } } = 
             <h3>Mega Man II (Game Boy)</h3>
             <p>Set after <em>Mega Man 3</em>. Frustrated by his constant defeats, Dr. Wily steals the experimental Time Skimmer in hopes of traveling to the past to change history. Mega Man heads out to fight Wily's Robot Masters and stop him before it's too late. However, Wily discovered that the Time Skipper could only go forward in time and back to the present; changing plans, he kidnapped Mega Man from an alternate future and converted him into a twisted robot named Quint. Mega Man fights Quint, defeats Wily in space, and destroys the Time Skimmer.</p>
             
-            <h2>Subseries</h2>
-            <h3>Mainline Games</h3>
-            <!-- This would be a table -->
-            <p><i>Table of mainline games to be added here.</i></p>
-
-            <h3>"Mega Man World" subseries</h3>
-            <p><i>Table of Mega Man World games to be added here.</i></p>
-
-            <h3>"Mega Man & Bass" subseries</h3>
-            <p><i>Table of Mega Man & Bass games to be added here.</i></p>
-            
             <h2>Characters</h2>
             <ul>
                 <li>Mega Man</li>
@@ -151,5 +140,3 @@ const localArticles: { [wikiId: string]: { [articleSlug: string]: Article } } = 
 export function getLocalArticle(wikiId: string, articleSlug: string): Article | undefined {
   return localArticles[wikiId]?.[articleSlug];
 }
-
-    
