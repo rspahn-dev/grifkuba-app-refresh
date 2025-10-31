@@ -17,8 +17,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { submitTicket } from './actions';
-import { useFormState, useFormStatus } from 'react-dom';
-import { useEffect } from 'react';
+import { useFormStatus } from 'react-dom';
+import { useEffect, useActionState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 
 const ticketFormSchema = z.object({
@@ -45,7 +45,7 @@ function SubmitButton() {
 }
 
 export default function SubmitTicketPage() {
-  const [state, formAction] = useFormState(submitTicket, initialState);
+  const [state, formAction] = useActionState(submitTicket, initialState);
   const { toast } = useToast();
 
   const form = useForm<TicketFormValues>({

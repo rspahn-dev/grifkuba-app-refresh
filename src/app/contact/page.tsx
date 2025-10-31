@@ -15,9 +15,9 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useFormStatus } from 'react-dom';
 import { submitMessage } from './actions';
-import { useEffect } from 'react';
+import { useEffect, useActionState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 
 const messageFormSchema = z.object({
@@ -44,7 +44,7 @@ function SubmitButton() {
 }
 
 export default function ContactPage() {
-  const [state, formAction] = useFormState(submitMessage, initialState);
+  const [state, formAction] = useActionState(submitMessage, initialState);
   const { toast } = useToast();
   const form = useForm<MessageFormValues>({
     resolver: zodResolver(messageFormSchema),
