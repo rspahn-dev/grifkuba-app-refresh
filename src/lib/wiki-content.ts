@@ -26,30 +26,61 @@ const localArticles: { [wikiId: string]: { [articleSlug: string]: Article } } = 
       title: "Mega Man Wiki",
       description: "We have many articles on the Mega Man franchise and counting! This wiki is predominantly divided into seven series, including additional material from crossovers and other sources.",
       content: `
-        <div style="border:3pt solid #194EC8;width:100%;padding:1pt;background:#69AEFF;">
-          <div style="width:100%;">
-            <div style="background:#194EC8;color:#ffffff;text-align:center;">Welcome to <big>Mega Man Wiki!</big></div>
-            <div style="background:#DBECFF; padding: 1em;"> We have many articles on the ''Mega Man'' franchise and counting! This wiki is predominantly divided into seven series, including additional material from crossovers and other sources.</div>
-          </div>
+        <div class="border-4 border-blue-700 w-full p-px bg-blue-400 mb-4">
+          <div class="bg-blue-700 text-white text-center p-2 font-bold text-lg">Welcome to Mega Man Wiki!</div>
+          <div class="bg-blue-100 text-black p-4">We have many articles on the ''Mega Man'' franchise and counting! This wiki is predominantly divided into seven series, including additional material from crossovers and other sources.</div>
         </div>
 
-        <div style="border:3px solid #194EC8;min-width:320px;width:90%;padding:1px;margin:4pt auto;background:#69AEFF;">
-          <div style="border:3px solid #194EC8;min-width:320px;width:50%;padding:1px;margin:4pt auto;background:#69AEFF;">
-            <div style="width:100%;text-align:center;margin:auto;background:#DBECFF;">
-              <div style="width:33%;vertical-align:top;display:inline-block;padding:1em;"><a href="/wiki/mega-man-wiki/Classic_series"><img src="https://megamanwiki.com/images/thumb/1/11/Wiki_-_Classic_Icon.png/104px-Wiki_-_Classic_Icon.png" alt="Classic series icon" /><br/><big>Classic</big></a></div>
-              <div style="width:33%;vertical-align:top;display:inline-block;padding:1em;"><a href="/wiki/mega-man-wiki/X_series"><img src="https://megamanwiki.com/images/thumb/7/73/Wiki_-_X_Icon.png/104px-Wiki_-_X_Icon.png" alt="X series icon" /><br/><big>X</big></a></div>
-              <div style="width:33%;vertical-align:top;display:inline-block;padding:1em;"><a href="/wiki/mega-man-wiki/Zero_series"><img src="https://megamanwiki.com/images/thumb/6/6a/Wiki_-_Zero_Icon.png/104px-Wiki_-_Zero_Icon.png" alt="Zero series icon" /><br/><big>Zero</big></a></div>
-              <div style="vertical-align:top;display:inline-block;padding:1em;"><a href="/wiki/mega-man-wiki/ZX_series"><img src="https://megamanwiki.com/images/thumb/7/7f/Wiki_-_ZX_Icon.png/104px-Wiki_-_ZX_Icon.png" alt="ZX series icon" /><br/><big>ZX</big></a></div>
-              <div style="vertical-align:top;display:inline-block;padding:1em;"><a href="/wiki/mega-man-wiki/Legends_series"><img src="https://megamanwiki.com/images/thumb/a/a3/Wiki_-_Legends_Icon.png/104px-Wiki_-_Legends_Icon.png" alt="Legends series icon" /><br/><big>Legends</big></a></div>
-              <div style="vertical-align:top;display:inline-block;padding:1em;"><a href="/wiki/mega-man-wiki/Battle_Network_series"><img src="https://megamanwiki.com/images/thumb/1/19/Wiki_-_Battle_Network_Icon.png/104px-Wiki_-_Battle_Network_Icon.png" alt="Battle Network series icon" /><br/><big>Battle Network</big></a></div>
-              <div style="vertical-align:top;display:inline-block;padding:1em;"><a href="/wiki/mega-man-wiki/Star_Force_series"><img src="https://megamanwiki.com/images/thumb/3/38/Wiki_-_Star_Force_Icon.png/104px-Wiki_-_Star_Force_Icon.png" alt="Star Force series icon" /><br/><big>Star Force</big></a></div>
-              <div style="vertical-align:top;display:inline-block;padding:1em;"><a href="/wiki/mega-man-wiki/Crossover"><img src="https://megamanwiki.com/images/thumb/f/f0/Wiki_-_Other_Games_Icon.png/104px-Wiki_-_Other_Games_Icon.png" alt="Crossover icon" /><br/><big>Crossovers</big></a></div>
-              <div style="vertical-align:top;display:inline-block;padding:1em;"><a href="/wiki/mega-man-wiki/Other_media"><img src="https://megamanwiki.com/images/thumb/a/a2/Wiki_-_Other_Media_Icon.png/104px-Wiki_-_Other_Media_Icon.png" alt="Other media icon" /><br/><big>Other</big></a></div>
+        <div class="border-2 border-blue-700 w-full md:w-3/4 mx-auto p-1 bg-blue-400 mb-4">
+          <div class="bg-blue-100 text-black p-4">
+              <h2 class="text-xl font-bold text-center mb-4">Game Series</h2>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
+                  <div><a href="/wiki/mega-man-wiki/Classic_series" class="font-bold">Classic</a></div>
+                  <div><a href="/wiki/mega-man-wiki/X_series" class="font-bold">X</a></div>
+                  <div><a href="/wiki/mega-man-wiki/Zero_series" class="font-bold">Zero</a></div>
+                  <div><a href="/wiki/mega-man-wiki/ZX_series" class="font-bold">ZX</a></div>
+                  <div><a href="/wiki/mega-man-wiki/Legends_series" class="font-bold">Legends</a></div>
+                  <div><a href="/wiki/mega-man-wiki/Battle_Network_series" class="font-bold">Battle Network</a></div>
+                  <div><a href="/wiki/mega-man-wiki/Star_Force_series" class="font-bold">Star Force</a></div>
+                  <div><a href="/wiki/mega-man-wiki/Crossover" class="font-bold">Crossovers</a></div>
+                  <div><a href="/wiki/mega-man-wiki/Other_media" class="font-bold">Other</a></div>
+              </div>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="border-2 border-blue-700 bg-blue-400 p-px">
+                <h3 class="bg-blue-700 text-white text-center p-2 font-bold">Featured Article</h3>
+                <div class="bg-blue-100 text-black p-4 min-h-[100px]">
+                    <p><i>Content to be added later.</i></p>
+                </div>
             </div>
-          </div>
+            <div class="border-2 border-blue-700 bg-blue-400 p-px">
+                <h3 class="bg-blue-700 text-white text-center p-2 font-bold">Main Areas of the Wiki</h3>
+                <div class="bg-blue-100 text-black p-4">
+                    <ul>
+                      <li><a href="/wiki/mega-man-wiki/Games">Games</a></li>
+                      <li><a href="/wiki/mega-man-wiki/Characters">Characters</a></li>
+                      <li><a href="/wiki/mega-man-wiki/Weapons">Weapons</a></li>
+                      <li><a href="/wiki/mega-man-wiki/Stages">Stages</a></li>
+                      <li><a href="/wiki/mega-man-wiki/Items">Items</a></li>
+                      <li><a href="/wiki/mega-man-wiki/Series">Series</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-2 border-blue-700 bg-blue-400 p-px">
+                <h3 class="bg-blue-700 text-white text-center p-2 font-bold">Featured Image</h3>
+                <div class="bg-blue-100 text-black p-4 min-h-[100px]">
+                    <p><i>Content to be added later.</i></p>
+                </div>
+            </div>
+            <div class="border-2 border-blue-700 bg-blue-400 p-px">
+                <h3 class="bg-blue-700 text-white text-center p-2 font-bold">Did you know?</h3>
+                <div class="bg-blue-100 text-black p-4 min-h-[100px]">
+                    <p><i>Content to be added later.</i></p>
+                </div>
+            </div>
         </div>
-
-        <p>Note: The complex wikitext for 'Featured Article', 'Featured Image', and 'Did you know?' sections has been omitted as it requires template expansion which is not supported in this context.</p>
       `
     }
   }

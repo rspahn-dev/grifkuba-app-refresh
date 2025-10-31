@@ -114,4 +114,22 @@
   .wiki-content li {
     @apply mb-2;
   }
+  .wiki-content .text-black {
+    color: hsl(var(--foreground));
+  }
+  .wiki-content .bg-blue-100 {
+    background-color: hsl(var(--card));
+  }
+   .wiki-content .bg-blue-400 {
+    background-color: hsl(var(--card) / 0.5);
+  }
+  .wiki-content .border-blue-700 {
+    border-color: hsl(var(--primary) / 0.5);
+  }
+  .wiki-content .bg-blue-700 {
+    background-color: hsl(var(--primary) / 0.7);
+  }
+  .wiki-content .text-white {
+    color: hsl(var(--primary-foreground));
+  }
 }
