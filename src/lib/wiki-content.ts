@@ -1,3 +1,4 @@
+
 import type { Article } from './types';
 
 const localArticles: { [wikiId: string]: { [articleSlug: string]: Article } } = {
@@ -134,9 +135,54 @@ const localArticles: { [wikiId: string]: { [articleSlug: string]: Article } } = 
             </ul>
         `
     }
+  },
+  "crash-bandicoot-wiki": {
+    "Main_Page": {
+      "title": "Crash Bandicoot Wiki",
+      "description": "An online encyclopedia about Crash Bandicoot.",
+      "content": `
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
+          <div class="lg:col-span-3 space-y-4">
+            <div class="border border-border bg-card p-4 rounded-lg">
+                <h2 class="text-2xl font-bold text-primary mb-2">Featured article</h2>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <img alt="Crash Nitro Kart PS2 cover.jpg" src="https://cdn.crashbandicootwiki.com/thumb/c/c0/Crash_Nitro_Kart_PS2_cover.jpg/84px-Crash_Nitro_Kart_PS2_cover.jpg" width="84" height="120" class="rounded-md border border-border" />
+                    <p><i><b>Crash Nitro Kart</b></i> is a racing game for the PlayStation 2, Nintendo GameCube and Xbox. The game was developed by Vicarious Visions and published by Universal Interactive in 2003. <i>Crash Nitro Kart</i> is an indirect follow up to <i>Crash Team Racing</i>. In 2007, PlayStation 2 version was re-released as part of the three-disc <i>Crash Bandicoot Action Pack</i> compilation (alongside <i>Crash Twinsanity</i> and <i>Crash Tag Team Racing</i>). The game has a story, which is explored in Adventure mode. <i>Crash Nitro Kart</i> was the last <i>Crash Bandicoot</i> game released under the Universal Interactive label, which parent company Vivendi would scrap after the game's release, in favor of their new company, Vivendi Universal Games. It is the first <i>Crash Bandicoot</i> game to have full-motion video cutscenes. Content from <i>Crash Nitro Kart</i> would later be used for <i>Crash Team Racing Nitro-Fueled</i>.</p>
+                </div>
+            </div>
+            <div class="border border-border bg-card p-4 rounded-lg">
+                <h2 class="text-2xl font-bold text-primary mb-2">Did you know?</h2>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <img alt="Traveller's Tales Oxford Studios.jpg" src="https://cdn.crashbandicootwiki.com/thumb/8/80/Traveller%27s_Tales_Oxford_Studios.jpg/120px-Traveller%27s_Tales_Oxford_Studios.jpg" width="120" height="90" class="rounded-md border border-border" />
+                    <ul>
+                        <li>During <i><b>Crash Team Racing</b></i>'s development, Crescent Island, a course from <i>Diddy Kong Racing</i>, was recreated to see if the PlayStation could handle similarly sized courses.</li>
+                        <li><b>Mr. Crumb</b>, who recently reappeared in <i>Crash Bandicoot: On the Run!</i>, originated as the villain of an obscure Tiger Electronics handheld simply titled <i>Crash Bandicoot</i>.</li>
+                        <li><b>Traveller's Tales</b> <i>(pictured)</i> attempted to create a racing game twice, <i>Crash Nitro Kart</i> and <i>Crash Tag Team Racing</i>, but different game developers would later work on each title instead.</li>
+                        <li><b>Crash Bandicoot</b> was called <i>Willy the Wombat</i> during early stages of the first game's development.</li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+          <div class="lg:col-span-2 space-y-4">
+            <div class="border border-border bg-card p-4 rounded-lg">
+                <h2 class="text-2xl font-bold text-primary mb-2">News</h2>
+                <img alt="Crash Team Rumble Promo.jpg" src="https://cdn.crashbandicootwiki.com/thumb/3/34/Crash_Team_Rumble_Promo.jpg/180px-Crash_Team_Rumble_Promo.jpg" width="180" height="101" class="rounded-md border border-border mb-2" />
+                <ul>
+                    <li><b>December 19, 2022</b>: The shutdown of <i><b>Crash Bandicoot: On the Run!</b></i> on February 16, 2023 is announced across the game's social media accounts.</li>
+                    <li><b>December 8, 2022</b>: <i><b>Crash Team Rumble</b></i> is unveiled at The Game Awards for release in 2023 on the PlayStation 4, PlayStation 5, Xbox Series X|S, and the Xbox One.</li>
+                    <li><b>January 18, 2022</b>: Microsoft has announced their deal to acquire Activision for $69 billion dollars and is set to obtain complete ownership of the <b><i>Crash Bandicoot</i> franchise</b> on July 2023.</li>
+                    <li><b>March 25, 2021</b>: <i><b>Crash Bandicoot: On the Run!</b></i> has been released for iOS and Android devices.</li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      `
+    }
   }
 };
 
 export function getLocalArticle(wikiId: string, articleSlug: string): Article | undefined {
   return localArticles[wikiId]?.[articleSlug];
 }
+
+    
