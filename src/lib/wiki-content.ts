@@ -4,21 +4,79 @@ import type { Article } from './types';
 const localArticles: { [wikiId: string]: { [articleSlug: string]: Article } } = {
   "lylat-wiki": {
     "Lylat_Wiki": {
-      title: "Welcome to Lylat Wiki",
+      title: "Lylat Wiki",
       description: "The definitive Star Fox resource.",
-      leadImage: "https://picsum.photos/seed/lylat-wiki-main/800/400",
-      leadImageHint: "space battle fighters",
+      leadImage: "https://cdn.starfoxwiki.info/thumb/9/99/Fox_McCloud_SF0_artwork.png/80px-Fox_McCloud_SF0_artwork.png",
+      leadImageHint: "Fox McCloud",
       content: `
-        <h1>Welcome to Lylat Wiki</h1>
-        <p>This is placeholder content for the Lylat Wiki main page. Please provide the actual source content to replace this.</p>
-        <p>Lylat Wiki is a collaborative encyclopedia about the Star Fox series, which anyone can edit. We are the definitive Star Fox resource.</p>
-        <h2>Getting Started</h2>
-        <p>To contribute, simply find a page that needs editing and click the edit button. You can also create new pages to expand our coverage of the Star Fox universe.</p>
-        <ul>
-            <li>Characters</li>
-            <li>Games</li>
-            <li>Locations</li>
-        </ul>
+        <div class="space-y-4">
+          <div class="bg-card border border-border rounded-lg p-4">
+            <div class="grid md:grid-cols-[auto_1fr] gap-4 items-center">
+              <img src="https://cdn.starfoxwiki.info/thumb/9/99/Fox_McCloud_SF0_artwork.png/80px-Fox_McCloud_SF0_artwork.png" alt="Fox McCloud" class="mx-auto" />
+              <div>
+                <h2 class="text-2xl font-bold text-primary mb-2">Welcome to the one and only Lylat Wiki!</h2>
+                <p>We're a comprehensive <i>Star Fox</i> wiki that aims to cover the entire <i>Star Fox</i> series. Interested in helping out? Create an account and start editing!</p>
+                <hr class="my-2 border-border" />
+                <p>We have <b>459 articles</b> of <b>4,327 pages</b> and <b>1,516 files</b>.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-card border border-border rounded-lg p-4">
+             <h2 class="text-2xl font-bold text-primary text-center mb-2">To Do</h2>
+             <p class="text-center mb-4">These are tasks we need help with. On the left are continuous tasks that will always need work, while on the right are current tasks.</p>
+             <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-muted p-4 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2 text-primary-foreground">Continuous tasks</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Expand articles in need of <a href="#">more content</a>.</li>
+                        <li>Mark or fix anything relating to <a href="#">maintenance</a>.</li>
+                        <li>Create pages listed under <a href="#">Special:WantedPages</a>.</li>
+                    </ul>
+                </div>
+                <div class="bg-muted p-4 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2 text-primary-foreground">Current tasks</h3>
+                    <p>Please help expand these item-related stubs.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><a href="#">Reflector</a></li>
+                        <li><a href="#">SpellStone</a></li>
+                        <li><a href="#">Wing Repair</a></li>
+                        <li><a href="#">Pepper Coin</a></li>
+                        <li><a href="#">CloudRunner Flute</a></li>
+                    </ul>
+                </div>
+             </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-card border border-border rounded-lg p-4">
+                <h2 class="text-2xl font-bold text-primary mb-2 text-center">News</h2>
+                <div class="space-y-4 text-sm">
+                    <div>
+                        <h3 class="font-bold text-primary-foreground">Star Fox News</h3>
+                        <ul class="list-disc list-inside space-y-2 mt-2">
+                            <li><b>September 25, 2021</b> - Star Fox 64 announced for Nintendo Switch Online + Expansion Pack.</li>
+                            <li><b>April 13, 2020</b> - Rick May, voice of Peppy Hare and Andross, has passed away.</li>
+                            <li><b>December 4, 2019</b> - Star Fox 2 announced for Nintendo Switch Online.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-primary-foreground">Lylat Wiki & NIWA News</h3>
+                         <ul class="list-disc list-inside space-y-2 mt-2">
+                            <li><b>December 11th, 2022</b> - The Dragon Quest Wiki has been officially ousted as a member of the NIWA Network.</li>
+                            <li><b>May 24th, 2021</b> - Our third Editor-in-Chief election is going on!</li>
+                        </ul>
+                    </div>
+                </div>
+              </div>
+              <div class="bg-card border border-border rounded-lg p-4">
+                <h2 class="text-2xl font-bold text-primary mb-2 text-center">Featured</h2>
+                 <div class="bg-muted p-4 rounded-lg text-center">
+                    <p>A Featured System is yet to come, stick around until it does!</p>
+                 </div>
+              </div>
+          </div>
+        </div>
       `
     }
   },
