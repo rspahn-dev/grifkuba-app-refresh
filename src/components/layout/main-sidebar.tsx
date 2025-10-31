@@ -43,68 +43,6 @@ export async function MainSidebar() {
       <SidebarContent>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild tooltip="View Tickets">
-                <Link href="/tickets">
-                    <List />
-                    <span>View Tickets</span>
-                </Link>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-          <SidebarMenuItem>
-            <SidebarMenuButton asChild tooltip="Submit Ticket">
-                <Link href="/tickets/new">
-                    <Ticket />
-                    <span>Submit Ticket</span>
-                </Link>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-          <SidebarMenuItem>
-            <SidebarMenuButton asChild tooltip="Contact Us">
-                <Link href="/contact">
-                    <Contact />
-                    <span>Contact Us</span>
-                </Link>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-          <SidebarSeparator />
-          <Collapsible>
-            <CollapsibleTrigger asChild>
-                <SidebarMenuButton tooltip="Wikis">
-                    <BookCopy />
-                    <span>Wikis</span>
-                    <span className="ml-auto group-data-[collapsible=icon]:hidden">
-                        <ChevronDown className="h-4 w-4" />
-                    </span>
-                </SidebarMenuButton>
-            </CollapsibleTrigger>
-            <CollapsibleContent>
-                <SidebarMenu className="py-1 ml-4 border-l border-border group-data-[collapsible=icon]:hidden">
-                    <SidebarMenuItem>
-                        <SidebarMenuButton asChild>
-                            <Link href="/wikis">
-                                <BookOpen />
-                                <span>All Wikis</span>
-                            </Link>
-                        </SidebarMenuButton>
-                    </SidebarMenuItem>
-                    <SidebarSeparator className="my-1"/>
-                    {wikis.map((wiki) => (
-                        <SidebarMenuItem key={wiki.id}>
-                            <SidebarMenuButton asChild>
-                                <Link href={`/wiki/${wiki.id}/${wiki.mainPage}`}>
-                                    <span>{wiki.name}</span>
-                                </Link>
-                            </SidebarMenuButton>
-                        </SidebarMenuItem>
-                    ))}
-                </SidebarMenu>
-            </CollapsibleContent>
-          </Collapsible>
-        </SidebarMenu>
-      </SidebarContent>
-      <SidebarFooter>
-        <SidebarMenu>
-          <SidebarMenuItem>
             <SidebarMenuButton asChild tooltip="Main Site">
                 <a href="https://grifkuba.net/" target="_blank" rel="noopener noreferrer">
                     <Home />
@@ -135,7 +73,7 @@ export async function MainSidebar() {
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                         <SidebarMenuButton asChild>
-                            <a href="https://ko-fi.com" target="_blank" rel="noopener noreferrer">
+                            <a href="https-fi.com" target="_blank" rel="noopener noreferrer">
                                 <span>Ko-fi</span>
                                 <ExternalLink className="ml-auto" />
                             </a>
@@ -153,7 +91,59 @@ export async function MainSidebar() {
                 </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
+          <SidebarSeparator />
+          <Collapsible>
+            <CollapsibleTrigger asChild>
+                <SidebarMenuButton tooltip="Wikis">
+                    <BookCopy />
+                    <span>Wikis</span>
+                    <span className="ml-auto group-data-[collapsible=icon]:hidden">
+                        <ChevronDown className="h-4 w-4" />
+                    </span>
+                </SidebarMenuButton>
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+                <SidebarMenu className="py-1 ml-4 border-l border-border group-data-[collapsible=icon]:hidden">
+                    {wikis.map((wiki) => (
+                        <SidebarMenuItem key={wiki.id}>
+                            <SidebarMenuButton asChild>
+                                <Link href={`/wiki/${wiki.id}/${wiki.mainPage}`}>
+                                    <span>{wiki.name}</span>
+                                </Link>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>
+                    ))}
+                </SidebarMenu>
+            </CollapsibleContent>
+          </Collapsible>
+          <SidebarSeparator />
+           <SidebarMenuItem>
+            <SidebarMenuButton asChild tooltip="View Tickets">
+                <Link href="/tickets">
+                    <List />
+                    <span>View Tickets</span>
+                </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild tooltip="Submit Ticket">
+                <Link href="/tickets/new">
+                    <Ticket />
+                    <span>Submit Ticket</span>
+                </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild tooltip="Contact Us">
+                <Link href="/contact">
+                    <Contact />
+                    <span>Contact Us</span>
+                </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
         </SidebarMenu>
+      </SidebarContent>
+      <SidebarFooter>
       </SidebarFooter>
     </>
   );
