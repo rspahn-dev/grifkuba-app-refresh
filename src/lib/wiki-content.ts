@@ -26,14 +26,14 @@ const localArticles: { [wikiId: string]: { [articleSlug: string]: Article } } = 
       title: "Mega Man Wiki",
       description: "We have many articles on the Mega Man franchise and counting! This wiki is predominantly divided into seven series, including additional material from crossovers and other sources.",
       content: `
-        <div class="border-4 border-blue-700 w-full p-px bg-blue-400 mb-4">
-          <div class="bg-blue-700 text-white text-center p-2 font-bold text-lg">Welcome to Mega Man Wiki!</div>
-          <div class="bg-blue-100 text-black p-4">We have many articles on the ''Mega Man'' franchise and counting! This wiki is predominantly divided into seven series, including additional material from crossovers and other sources.</div>
+        <div class="border-2 border-primary/30 w-full p-px bg-card mb-4 rounded-lg shadow-md">
+          <div class="bg-primary/10 text-primary text-center p-2 font-bold text-lg rounded-t-md">Welcome to Mega Man Wiki!</div>
+          <div class="p-4">We have many articles on the ''Mega Man'' franchise and counting! This wiki is predominantly divided into seven series, including additional material from crossovers and other sources.</div>
         </div>
 
-        <div class="border-2 border-blue-700 w-full md:w-3/4 mx-auto p-1 bg-blue-400 mb-4">
-          <div class="bg-blue-100 text-black p-4">
-              <h2 class="text-xl font-bold text-center mb-4">Game Series</h2>
+        <div class="border border-border w-full md:w-3/4 mx-auto p-1 bg-card mb-4 rounded-lg">
+          <div class="p-4">
+              <h2 class="text-xl font-bold text-center mb-4 text-primary">Game Series</h2>
               <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
                   <div><a href="/wiki/mega-man-wiki/Classic_series" class="font-bold">Classic</a></div>
                   <div><a href="/wiki/mega-man-wiki/X_series" class="font-bold">X</a></div>
@@ -49,15 +49,15 @@ const localArticles: { [wikiId: string]: { [articleSlug: string]: Article } } = 
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="border-2 border-blue-700 bg-blue-400 p-px">
-                <h3 class="bg-blue-700 text-white text-center p-2 font-bold">Featured Article</h3>
-                <div class="bg-blue-100 text-black p-4 min-h-[100px]">
+            <div class="border border-border bg-card p-px rounded-lg">
+                <h3 class="bg-muted text-foreground text-center p-2 font-bold rounded-t-md">Featured Article</h3>
+                <div class="p-4 min-h-[100px]">
                     <p><i>Content to be added later.</i></p>
                 </div>
             </div>
-            <div class="border-2 border-blue-700 bg-blue-400 p-px">
-                <h3 class="bg-blue-700 text-white text-center p-2 font-bold">Main Areas of the Wiki</h3>
-                <div class="bg-blue-100 text-black p-4">
+            <div class="border border-border bg-card p-px rounded-lg">
+                <h3 class="bg-muted text-foreground text-center p-2 font-bold rounded-t-md">Main Areas of the Wiki</h3>
+                <div class="p-4">
                     <ul>
                       <li><a href="/wiki/mega-man-wiki/Games">Games</a></li>
                       <li><a href="/wiki/mega-man-wiki/Characters">Characters</a></li>
@@ -68,15 +68,15 @@ const localArticles: { [wikiId: string]: { [articleSlug: string]: Article } } = 
                     </ul>
                 </div>
             </div>
-            <div class="border-2 border-blue-700 bg-blue-400 p-px">
-                <h3 class="bg-blue-700 text-white text-center p-2 font-bold">Featured Image</h3>
-                <div class="bg-blue-100 text-black p-4 min-h-[100px]">
+            <div class="border border-border bg-card p-px rounded-lg">
+                <h3 class="bg-muted text-foreground text-center p-2 font-bold rounded-t-md">Featured Image</h3>
+                <div class="p-4 min-h-[100px]">
                     <p><i>Content to be added later.</i></p>
                 </div>
             </div>
-            <div class="border-2 border-blue-700 bg-blue-400 p-px">
-                <h3 class="bg-blue-700 text-white text-center p-2 font-bold">Did you know?</h3>
-                <div class="bg-blue-100 text-black p-4 min-h-[100px]">
+            <div class="border border-border bg-card p-px rounded-lg">
+                <h3 class="bg-muted text-foreground text-center p-2 font-bold rounded-t-md">Did you know?</h3>
+                <div class="p-4 min-h-[100px]">
                     <p><i>Content to be added later.</i></p>
                 </div>
             </div>
