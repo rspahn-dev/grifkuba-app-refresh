@@ -39,6 +39,12 @@ const nextConfig: NextConfig = {
         hostname: 'cdn.crashbandicootwiki.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.starfoxwiki.info',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
