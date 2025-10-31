@@ -1,6 +1,6 @@
 import type { Wiki, Ticket, Article, Message } from '@/lib/types';
 import { PlaceHolderImages } from './placeholder-images';
-import wtf from 'wtf_wikipedia';
+import { getLocalArticle } from './wiki-content';
 
 // Mock data to simulate Firestore
 const wikis: Wiki[] = [
@@ -15,7 +15,7 @@ const wikis: Wiki[] = [
     id: 'pikipedia',
     name: 'Pikipedia',
     baseUrl: 'https://www.pikminwiki.com',
-    apiUrl: 'https://www.pikminwiki.com/api.php',
+    apiUrl: 'https://www.pikminwiki.com/w/api.php',
     mainPage: 'Main_Page',
   },
   {
@@ -90,80 +90,19 @@ export async function getWikiById(id: string): Promise<Wiki | undefined> {
 }
 
 export async function getArticle(wikiId: string, articleSlug: string): Promise<Article> {
-    const wiki = await getWikiById(wikiId);
+    const localArticle = getLocalArticle(wikiId, articleSlug);
+
+    if (localArticle) {
+        return localArticle;
+    }
+
+    // Fallback or error for articles not found locally
     const title = articleSlug.replace(/_/g, ' ');
-
-    if (!wiki) {
-      return {
-        title,
+    return {
+        title: title,
         content: '',
-        error: `Wiki with ID "${wikiId}" not found.`,
-      };
-    }
-
-    const params = new URLSearchParams({
-        action: 'parse',
-        page: articleSlug,
-        prop: 'wikitext|images',
-        format: 'json',
-        origin: '*', // Necessary for CORS
-    });
-
-    try {
-        const response = await fetch(`${wiki.apiUrl}?${params.toString()}`);
-        
-        if (!response.ok) {
-            return {
-                title: title,
-                content: '',
-                error: `Network response was not ok (${response.status}). The article might not exist.`,
-            };
-        }
-
-        const data = await response.json();
-
-        if (data.error) {
-             return {
-                title: title,
-                content: '',
-                error: `Could not find article: ${data.error.info}`,
-            };
-        }
-
-
-        const wikitext = data.parse.wikitext['*'];
-        const doc = wtf(wikitext);
-        let htmlContent = doc.text();
-
-        // Make links relative to our app structure
-        htmlContent = htmlContent.replace(new RegExp(`href="/`, 'g'), `href="${wiki.baseUrl}/`);
-        htmlContent = htmlContent.replace(new RegExp(`href="${wiki.baseUrl}/wiki/`, 'g'), `href="/wiki/${wiki.id}/`);
-
-        const leadImage = doc.image()?.url();
-
-        return {
-            title: data.parse.title,
-            description: doc.sentences(0)?.text(),
-            leadImage: leadImage,
-            leadImageHint: leadImage ? 'gameplay screenshot' : undefined,
-            content: htmlContent,
-        };
-
-    } catch (error: any) {
-        console.error("Failed to fetch article:", error);
-        return {
-            title: title,
-            leadImage: `https://picsum.photos/seed/${wikiId}-${articleSlug}/800/400`,
-            leadImageHint: leadImagePlaceholder?.imageHint,
-            content: `
-                <p>This is a template for a wiki article page. In a real scenario, this content would be fetched from the wiki's API.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
-                <h2>Subsection Title</h2>
-                <p>Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue.</p>
-            `,
-            error: error.message || "An unknown error occurred while fetching the article."
-        }
-    }
+        error: `Article "${title}" not found locally. Please provide the source content.`,
+    };
 }
 
 export async function getTickets(): Promise<Ticket[]> {
