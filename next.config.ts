@@ -33,6 +33,12 @@ const nextConfig: NextConfig = {
         hostname: 'cdn.grifkuba.net',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.crashbandicootwiki.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
