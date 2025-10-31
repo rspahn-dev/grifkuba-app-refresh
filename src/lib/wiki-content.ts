@@ -83,62 +83,68 @@ const localArticles: { [wikiId: string]: { [articleSlug: string]: Article } } = 
   "mega-man-wiki": {
     "Main_Page": {
       title: "Mega Man Wiki",
-      description: "We have many articles on the Mega Man franchise and counting! This wiki is predominantly divided into seven series, including additional material from crossovers and other sources.",
+      description: "Mega Man Knowledge Base is home to everything Mega Man—games, characters, weapons, and more across every series.",
+      leadImage: "https://cdn.megamanwiki.com/thumb/1/15/MMKB_logo.png/150px-MMKB_logo.png",
+      leadImageHint: "Mega Man Knowledge Base logo",
       content: `
-        <div class="border-2 border-primary/30 w-full p-px bg-card mb-4 rounded-lg shadow-md">
-          <div class="bg-primary/10 text-primary text-center p-2 font-bold text-lg rounded-t-md">Welcome to Mega Man Wiki!</div>
-          <div class="p-4">We have many articles on the ''Mega Man'' franchise and counting! This wiki is predominantly divided into seven series, including additional material from crossovers and other sources.</div>
-        </div>
-
-        <div class="border border-border w-full md:w-3/4 mx-auto p-1 bg-card mb-4 rounded-lg">
-          <div class="p-4">
-              <h2 class="text-xl font-bold text-center mb-4 text-primary">Game Series</h2>
-              <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
-                  <div><a href="/wiki/mega-man-wiki/Classic_series" class="font-bold">Classic</a></div>
-                  <div><a href="/wiki/mega-man-wiki/X_series" class="font-bold">X</a></div>
-                  <div><a href="/wiki/mega-man-wiki/Zero_series" class="font-bold">Zero</a></div>
-                  <div><a href="/wiki/mega-man-wiki/ZX_series" class="font-bold">ZX</a></div>
-                  <div><a href="/wiki/mega-man-wiki/Legends_series" class="font-bold">Legends</a></div>
-                  <div><a href="/wiki/mega-man-wiki/Battle_Network_series" class="font-bold">Battle Network</a></div>
-                  <div><a href="/wiki/mega-man-wiki/Star_Force_series" class="font-bold">Star Force</a></div>
-                  <div><a href="/wiki/mega-man-wiki/Crossover" class="font-bold">Crossovers</a></div>
-                  <div><a href="/wiki/mega-man-wiki/Other_media" class="font-bold">Other</a></div>
+        <div class="space-y-6">
+          <div class="border border-border bg-card rounded-lg p-6 shadow">
+            <div class="flex flex-col md:flex-row md:items-center gap-4">
+              <img class="w-28 h-28 object-contain mx-auto md:mx-0" src="https://cdn.megamanwiki.com/thumb/1/15/MMKB_logo.png/200px-MMKB_logo.png" alt="Mega Man Knowledge Base logo"/>
+              <div class="space-y-2 text-center md:text-left">
+                <h2 class="text-3xl font-bold text-primary">Welcome to Mega Man Knowledge Base</h2>
+                <p class="text-foreground/80">
+                  Mega Man Knowledge Base—better known as <strong>Mega Man Wiki</strong>—keeps track of every game, character, ability, and world in Capcom’s long-running franchise. Whether you’re jumping into Classic adventures or exploring the far future with Battle Network, the archives are ready for you to explore and expand.
+                </p>
               </div>
+            </div>
           </div>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="border border-border bg-card p-px rounded-lg">
-                <h3 class="bg-muted text-foreground text-center p-2 font-bold rounded-t-md">Featured Article</h3>
-                <div class="p-4 min-h-[100px]">
-                    <p><i>Content to be added later.</i></p>
-                </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="border border-border bg-card rounded-lg p-6">
+              <h3 class="text-2xl font-semibold text-primary mb-4 text-center">Explore by Series</h3>
+              <div class="grid grid-cols-2 gap-3 text-sm font-semibold text-center">
+                <a class="hover:text-primary" href="/wiki/mega-man-wiki/Classic_series">Classic</a>
+                <a class="hover:text-primary" href="/wiki/mega-man-wiki/X_series">X</a>
+                <a class="hover:text-primary" href="/wiki/mega-man-wiki/Zero_series">Zero</a>
+                <a class="hover:text-primary" href="/wiki/mega-man-wiki/ZX_series">ZX</a>
+                <a class="hover:text-primary" href="/wiki/mega-man-wiki/Legends_series">Legends</a>
+                <a class="hover:text-primary" href="/wiki/mega-man-wiki/Battle_Network_series">Battle Network</a>
+                <a class="hover:text-primary" href="/wiki/mega-man-wiki/Star_Force_series">Star Force</a>
+                <a class="hover:text-primary" href="/wiki/mega-man-wiki/Crossover">Crossovers</a>
+                <a class="hover:text-primary" href="/wiki/mega-man-wiki/Other_media">Other media</a>
+              </div>
             </div>
-            <div class="border border-border bg-card p-px rounded-lg">
-                <h3 class="bg-muted text-foreground text-center p-2 font-bold rounded-t-md">Main Areas of the Wiki</h3>
-                <div class="p-4">
-                    <ul>
-                      <li><a href="/wiki/mega-man-wiki/Games">Games</a></li>
-                      <li><a href="/wiki/mega-man-wiki/Characters">Characters</a></li>
-                      <li><a href="/wiki/mega-man-wiki/Weapons">Weapons</a></li>
-                      <li><a href="/wiki/mega-man-wiki/Stages">Stages</a></li>
-                      <li><a href="/wiki/mega-man-wiki/Items">Items</a></li>
-                      <li><a href="/wiki/mega-man-wiki/Series">Series</a></li>
-                    </ul>
-                </div>
+            <div class="border border-border bg-card rounded-lg p-6">
+              <h3 class="text-2xl font-semibold text-primary mb-4 text-center">Wiki Hubs</h3>
+              <ul class="space-y-2 text-sm text-foreground/80">
+                <li><a class="hover:text-primary font-medium" href="/wiki/mega-man-wiki/Games">Games</a></li>
+                <li><a class="hover:text-primary font-medium" href="/wiki/mega-man-wiki/Characters">Characters</a></li>
+                <li><a class="hover:text-primary font-medium" href="/wiki/mega-man-wiki/Weapons">Weapons</a></li>
+                <li><a class="hover:text-primary font-medium" href="/wiki/mega-man-wiki/Stages">Stages</a></li>
+                <li><a class="hover:text-primary font-medium" href="/wiki/mega-man-wiki/Items">Items</a></li>
+                <li><a class="hover:text-primary font-medium" href="/wiki/mega-man-wiki/Series">Series overview</a></li>
+              </ul>
             </div>
-            <div class="border border-border bg-card p-px rounded-lg">
-                <h3 class="bg-muted text-foreground text-center p-2 font-bold rounded-t-md">Featured Image</h3>
-                <div class="p-4 min-h-[100px]">
-                    <p><i>Content to be added later.</i></p>
-                </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="border border-border bg-card rounded-lg p-6">
+              <h3 class="text-xl font-semibold text-primary mb-2 text-center">Featured Article</h3>
+              <p class="text-sm text-foreground/80 italic text-center">Featured content rotates regularly. Dive into the highlighted article to learn something new about Mega Man.</p>
             </div>
-            <div class="border border-border bg-card p-px rounded-lg">
-                <h3 class="bg-muted text-foreground text-center p-2 font-bold rounded-t-md">Did you know?</h3>
-                <div class="p-4 min-h-[100px]">
-                    <p><i>Content to be added later.</i></p>
-                </div>
+            <div class="border border-border bg-card rounded-lg p-6">
+              <h3 class="text-xl font-semibold text-primary mb-2 text-center">Did you know?</h3>
+              <p class="text-sm text-foreground/80 italic text-center">Fun franchise facts and deep-cut trivia are curated by the community.</p>
             </div>
+          </div>
+
+          <div class="border border-border bg-card rounded-lg p-6">
+            <h3 class="text-xl font-semibold text-primary mb-2">Guides &amp; Policies</h3>
+            <p class="text-sm text-foreground/80">
+              Review the <a class="underline hover:text-primary" href="/wiki/MMKB:Manual_of_Style">Manual of Style</a> and the wiki <a class="underline hover:text-primary" href="/wiki/MMKB:Rules">Rules</a> before contributing. Mega Man Wiki is proud to stand with the <a class="underline hover:text-primary" href="https://niwanetwork.org/ultra/" target="_blank" rel="noopener noreferrer">Nintendo Independent Wiki Alliance</a> in keeping fan knowledge freely available.
+            </p>
+          </div>
         </div>
       `
     },
@@ -231,6 +237,133 @@ const localArticles: { [wikiId: string]: { [articleSlug: string]: Article } } = 
                     <li><b>January 18, 2022</b>: Microsoft has announced their deal to acquire Activision for $69 billion dollars and is set to obtain complete ownership of the <b><i>Crash Bandicoot</i> franchise</b> on July 2023.</li>
                     <li><b>March 25, 2021</b>: <i><b>Crash Bandicoot: On the Run!</b></i> has been released for iOS and Android devices.</li>
                 </ul>
+            </div>
+          </div>
+        </div>
+      `
+    }
+  },
+  "final-fantasy-wiki": {
+    "Main_Page": {
+      "title": "Final Fantasy Wiki",
+      "description": "Welcome hub for the Final Fantasy Wiki community, tracking news, trivia, and collaboration tasks across the franchise.",
+      "leadImage": "https://cdn.finalfantasywiki.com/7/7e/FFVI_logo.jpg",
+      "leadImageHint": "Final Fantasy VI logo artwork",
+      "content": `
+        <div class="space-y-6">
+          <div class="border border-border bg-card rounded-lg p-6 shadow-sm">
+            <div class="flex flex-col md:flex-row gap-4 items-center md:items-start">
+              <img src="https://cdn.finalfantasywiki.com/thumb/0/0b/Cloud_on_Chocobo_FFVII_artwork.jpg/150px-Cloud_on_Chocobo_FFVII_artwork.jpg" alt="Cloud riding a chocobo" class="rounded-md border border-border w-[120px] h-auto" />
+              <div class="space-y-2 text-center md:text-left">
+                <h2 class="text-3xl font-bold text-primary">Welcome to Final Fantasy Wiki</h2>
+                <p class="text-foreground/90">A community-maintained encyclopedia for the <i>Final Fantasy</i> franchise since January 2020.</p>
+                <p class="text-sm text-muted-foreground">We are currently hosting <b>805 articles</b>. Visit the <a class="underline hover:text-primary" href="https://finalfantasywiki.com/wiki/Help:Contents" target="_blank" rel="noopener noreferrer">help center</a> to get started, or drop by our <a class="underline hover:text-primary" href="https://discord.gg/eQNsPWR4" target="_blank" rel="noopener noreferrer">Discord</a> to request an account.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-6">
+            <div class="border border-border bg-card rounded-lg p-6 space-y-4">
+              <div>
+                <h3 class="text-2xl font-semibold text-primary mb-2 text-center">Featured article</h3>
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <img src="https://cdn.finalfantasywiki.com/thumb/7/7e/FFVI_logo.jpg/200px-FFVI_logo.jpg" alt="Final Fantasy VI logo" class="rounded-md border border-border w-[160px] h-auto mx-auto sm:mx-0" />
+                  <p class="text-sm leading-relaxed text-foreground/90">
+                    <i><b>Final Fantasy VI</b></i> is the sixth mainline installment, originally released in 1994 for the Super Nintendo Entertainment System. Co-directed by Yoshinori Kitase and Hiroyuki Itou, with a score by Nobuo Uematsu and character art by Yoshitaka Amano, it introduced hidden party members and marked the final 2D main series entry before <i>Final Fantasy VII</i> revolutionized the franchise.
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-xl font-semibold text-purple-300 mb-2 text-center">Did you know?</h3>
+                <ul class="list-disc list-inside space-y-1 text-sm text-foreground/90">
+                  <li>The series name came from Hironobu Sakaguchi, who thought it might be his final game.</li>
+                  <li>Cloud Strife has more recurring appearances than any other main protagonist.</li>
+                  <li><i>Final Fantasy X</i> was the first entry with full voice acting.</li>
+                  <li><i>Final Fantasy VI</i> pioneered hidden party members.</li>
+                  <li>Torgal’s moves in <i>Final Fantasy XVI</i> draw inspiration from the assist system in <i>Marvel vs. Capcom 2</i>.</li>
+                  <li>The iconic “Prelude” theme was composed in about five minutes.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="border border-border bg-card rounded-lg p-6 space-y-4">
+              <div>
+                <h3 class="text-2xl font-semibold text-emerald-300 mb-2 text-center">News</h3>
+                <ul class="space-y-2 text-sm text-foreground/90">
+                  <li><b>October 14, 2025:</b> <i>Dissidia Duellum Final Fantasy</i> announced for mobile in 2026.</li>
+                  <li><b>September 30, 2025:</b> <i>Final Fantasy Tactics: The Ivalice Chronicles</i> released worldwide.</li>
+                  <li><b>August 2025:</b> <i>Final Fantasy Brave Exvius</i> sunset set for October 31.</li>
+                  <li><b>June 9, 2025:</b> <i>Final Fantasy XVI</i> confirmed for Xbox Series consoles; <i>FFVII Remake Intergrade</i> heads to additional platforms Winter 2026.</li>
+                  <li><b>June 4, 2025:</b> <i>Final Fantasy Tactics: The Ivalice Chronicles</i> revealed with a September 30 launch.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 class="text-xl font-semibold text-amber-300 mb-2 text-center">To do</h3>
+                <div class="grid sm:grid-cols-2 gap-4 text-sm text-foreground/90">
+                  <div class="space-y-2">
+                    <h4 class="font-semibold text-primary text-center">Continuous</h4>
+                    <ul class="list-disc list-inside space-y-1">
+                      <li>Expand stub-class articles.</li>
+                      <li>Create pages listed in <i>Special:WantedPages</i>.</li>
+                      <li>Add missing citations to unsourced content.</li>
+                      <li>Upgrade low quality images across the wiki.</li>
+                    </ul>
+                  </div>
+                  <div class="space-y-2">
+                    <h4 class="font-semibold text-primary text-center">Current</h4>
+                    <ul class="list-disc list-inside space-y-1">
+                      <li>Refresh character pages for <i>Final Fantasy IV</i>, <i>VI</i>, and <i>VII</i>.</li>
+                      <li>Build comprehensive main articles for <i>FFVII</i>, <i>FFVII Remake</i>, and <i>FFXVI</i>.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-6">
+            <div class="border border-border bg-card rounded-lg p-6 space-y-4">
+              <h3 class="text-2xl font-semibold text-primary text-center">Navigation</h3>
+              <p class="text-center text-sm text-foreground/80">Browse the major Final Fantasy categories maintained by volunteers across the network.</p>
+              <div class="flex flex-wrap justify-center gap-2 text-sm font-medium text-primary">
+                <span class="px-3 py-1 rounded-full border border-primary/40">Games</span>
+                <span class="px-3 py-1 rounded-full border border-primary/40">Characters</span>
+                <span class="px-3 py-1 rounded-full border border-primary/40">Enemies</span>
+                <span class="px-3 py-1 rounded-full border border-primary/40">Species</span>
+                <span class="px-3 py-1 rounded-full border border-primary/40">Items</span>
+                <span class="px-3 py-1 rounded-full border border-primary/40">Equipment</span>
+                <span class="px-3 py-1 rounded-full border border-primary/40">Weapons</span>
+                <span class="px-3 py-1 rounded-full border border-primary/40">Armor</span>
+                <span class="px-3 py-1 rounded-full border border-primary/40">Locations</span>
+                <span class="px-3 py-1 rounded-full border border-primary/40">Abilities</span>
+                <span class="px-3 py-1 rounded-full border border-primary/40">Summons</span>
+                <span class="px-3 py-1 rounded-full border border-primary/40">Classes</span>
+                <span class="px-3 py-1 rounded-full border border-primary/40">Terms</span>
+                <span class="px-3 py-1 rounded-full border border-primary/40">Music</span>
+              </div>
+            </div>
+            <div class="border border-border bg-card rounded-lg p-6 space-y-3">
+              <h3 class="text-2xl font-semibold text-primary text-center">Square Enix Independent Wiki Alliance</h3>
+              <p class="text-sm text-foreground/80 text-center">
+                Final Fantasy Wiki collaborates closely with fellow SEIWA members such as Square Enix Wiki, Chrono Wiki, Kingdom Hearts Wiki, and StrategyWiki to build comprehensive coverage across all Square Enix properties.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-6">
+            <div class="border border-border bg-card rounded-lg p-6 space-y-3">
+              <h3 class="text-2xl font-semibold text-primary text-center">Gaming Wiki Network</h3>
+              <p class="text-sm text-foreground/80 text-center">
+                As part of the broader Gaming Wiki Network, Final Fantasy Wiki stands alongside independent projects covering Banjo-Kazooie, Crash Bandicoot, Fallout, Hollow Knight, Mana, SaGa, Zelda, and many more community-led resources.
+              </p>
+            </div>
+            <div class="border border-border bg-card rounded-lg p-6 space-y-3">
+              <h3 class="text-2xl font-semibold text-primary text-center">Independent Wiki Federation</h3>
+              <p class="text-sm text-foreground/80 text-center">
+                The Independent Wiki Federation provides tools and shared best practices for volunteer wiki teams—linking Final Fantasy Wiki with allies like the Independent Fallout Wiki, Sonic Archive, Telepedia, TWEWY Wiki, and other self-hosted communities.
+              </p>
             </div>
           </div>
         </div>

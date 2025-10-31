@@ -2,7 +2,6 @@ export type Wiki = {
   id: string;
   name: string;
   baseUrl: string;
-  apiUrl: string;
   mainPage: string;
   logo?: string;
 };

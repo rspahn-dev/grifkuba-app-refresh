@@ -8,7 +8,6 @@ const wikis: Wiki[] = [
     id: 'lylat-wiki',
     name: 'Lylat Wiki',
     baseUrl: 'https://starfoxwiki.info',
-    apiUrl: 'https://starfoxwiki.info/w/api.php',
     mainPage: 'Lylat_Wiki',
     logo: 'https://cdn.grifkuba.net/thumb/7/7e/Lylat-Wiki-logo.png/100px-Lylat-Wiki-logo.png',
   },
@@ -16,7 +15,6 @@ const wikis: Wiki[] = [
     id: 'square-enix-wiki',
     name: 'Square Enix Wiki',
     baseUrl: 'https://wiki.seiwanetwork.org',
-    apiUrl: 'https://wiki.seiwanetwork.org/w/api.php',
     mainPage: 'Main_Page',
     logo: 'https://cdn.grifkuba.net/thumb/a/a4/Square-Enix-Wiki-logo.png/100px-Square-Enix-Wiki-logo.png'
   },
@@ -24,7 +22,6 @@ const wikis: Wiki[] = [
     id: 'final-fantasy-wiki',
     name: 'Final Fantasy Wiki',
     baseUrl: 'https://finalfantasywiki.com',
-    apiUrl: 'https://finalfantasywiki.com/w/api.php',
     mainPage: 'Main_Page',
     logo: 'https://cdn.grifkuba.net/thumb/b/b1/Final-Fantasy-Wiki-logo0.png/100px-Final-Fantasy-Wiki-logo0.png'
   },
@@ -32,7 +29,6 @@ const wikis: Wiki[] = [
     id: 'kolapedia',
     name: 'Kolapedia',
     baseUrl: 'https://carriefriendswiki.com',
-    apiUrl: 'https://carriefriendswiki.com/w/api.php',
     mainPage: 'Main_Page',
     logo: 'https://cdn.grifkuba.net/thumb/0/0a/Kolapedia-logo.png/100px-Kolapedia-logo.png'
   },
@@ -40,7 +36,6 @@ const wikis: Wiki[] = [
     id: 'crash-bandicoot-wiki',
     name: 'Crash Bandicoot Wiki',
     baseUrl: 'https://crashbandicootwiki.com',
-    apiUrl: 'https://crashbandicootwiki.com/w/api.php',
     mainPage: 'Main_Page',
     logo: 'https://cdn.grifkuba.net/thumb/c/cf/Crash-Bandicoot-Wiki-logo.png/100px-Crash-Bandicoot-Wiki-logo.png'
   },
@@ -48,7 +43,6 @@ const wikis: Wiki[] = [
     id: 'jiggywikki',
     name: 'JiggyWikki',
     baseUrl: 'https://banjokazooiewiki.com',
-    apiUrl: 'https://banjokazooiewiki.com/w/api.php',
     mainPage: 'Main_Page',
     logo: 'https://cdn.grifkuba.net/thumb/b/b7/JiggyWikki-logo.png/100px-JiggyWikki-logo.png'
   },
@@ -56,7 +50,6 @@ const wikis: Wiki[] = [
     id: 'rare-wiki',
     name: 'Rare Wiki',
     baseUrl: 'https://rarewiki.com',
-    apiUrl: 'https://rarewiki.com/w/api.php',
     mainPage: 'Main_Page',
     logo: 'https://cdn.grifkuba.net/thumb/8/81/Rare-Wiki-logo.png/100px-Rare-Wiki-logo.png'
   },
@@ -64,7 +57,6 @@ const wikis: Wiki[] = [
     id: 'saga-wiki',
     name: 'SaGa Wiki',
     baseUrl: 'https://sagawiki.org',
-    apiUrl: 'https://sagawiki.org/w/api.php',
     mainPage: 'SaGa_Wiki',
     logo: 'https://cdn.grifkuba.net/thumb/5/50/Saga-Wiki-logo.png/100px-Saga-Wiki-logo.png'
   },
@@ -72,7 +64,6 @@ const wikis: Wiki[] = [
     id: 'triforce-wiki',
     name: 'Triforce Wiki',
     baseUrl: 'https://triforcewiki.com',
-    apiUrl: 'https://triforcewiki.com/w/api.php',
     mainPage: 'Main_Page',
     logo: 'https://cdn.grifkuba.net/thumb/e/e2/Triforce-Wiki-logo.png/100px-Triforce-Wiki-logo.png'
   },
@@ -80,7 +71,6 @@ const wikis: Wiki[] = [
     id: 'wiki-of-mana',
     name: 'Wiki of Mana',
     baseUrl: 'https://wikiofmana.com',
-    apiUrl: 'https://wikiofmana.com/w/api.php',
     mainPage: 'Main_Page',
     logo: 'https://cdn.grifkuba.net/thumb/b/b8/Wiki-of-Mana-logo.png/100px-Wiki-of-Mana-logo.png'
   },
@@ -88,7 +78,6 @@ const wikis: Wiki[] = [
     id: 'arthur-wiki',
     name: 'Arthur Wiki',
     baseUrl: 'https://arthurwiki.com',
-    apiUrl: 'https://arthurwiki.com/w/api.php',
     mainPage: 'Arthur_Wiki',
     logo: 'https://cdn.grifkuba.net/thumb/c/cb/Arthur-Wiki-logo.png/100px-Arthur-Wiki-logo.png'
   },
@@ -96,7 +85,6 @@ const wikis: Wiki[] = [
     id: 'etrian-odyssey-wiki',
     name: 'Etrian Odyssey Wiki',
     baseUrl: 'https://etrianodyssey.wiki',
-    apiUrl: 'https://etrianodyssey.wiki/w/api.php',
     mainPage: 'Main_Page',
     logo: 'https://cdn.grifkuba.net/thumb/c/c9/Etrian-Odyssey-Wiki-logo.png/100px-Etrian-Odyssey-Wiki-logo.png'
   },
@@ -104,7 +92,6 @@ const wikis: Wiki[] = [
     id: 'hanna-barbera-wiki',
     name: 'Hanna-Barbera Wiki',
     baseUrl: 'https://hanna-barberawiki.com',
-    apiUrl: 'https://hanna-barberawiki.com/w/api.php',
     mainPage: 'Main_Page',
     logo: 'https://cdn.grifkuba.net/thumb/0/05/Hanna-Barbera-Wiki-logo.png/100px-Hanna-Barbera-Wiki-logo.png'
   },
@@ -112,7 +99,6 @@ const wikis: Wiki[] = [
     id: 'sanrio-wiki',
     name: 'Sanrio Wiki',
     baseUrl: 'https://sanriowiki.com',
-    apiUrl: 'https://sanriowiki.com/w/api.php',
     mainPage: 'Sanrio_Wiki',
     logo: 'https://cdn.grifkuba.net/thumb/4/4c/Hello-Kitty-Sanrio-Wiki-logo.png/100px-Hello-Kitty-Sanrio-Wiki-logo.png'
   },
@@ -120,7 +106,6 @@ const wikis: Wiki[] = [
     id: 'cartoon-network-wiki',
     name: 'Cartoon Network Wiki',
     baseUrl: 'https://cartoonnetworkwiki.com',
-    apiUrl: 'https://cartoonnetworkwiki.com/w/api.php',
     mainPage: 'Main_Page',
     logo: 'https://cdn.grifkuba.net/thumb/5/53/Cartoon-Network-Wiki-logo.png/100px-Cartoon-Network-Wiki-logo.png'
   },
@@ -128,7 +113,6 @@ const wikis: Wiki[] = [
     id: 'looney-tunes-wiki',
     name: 'Looney Tunes Wiki',
     baseUrl: 'https://looneytuneswiki.com',
-    apiUrl: 'https://looneytuneswiki.com/w/api.php',
     mainPage: 'Main_Page',
     logo: 'https://cdn.grifkuba.net/thumb/e/e9/Looney-Tunes-Wiki-logo.png/100px-Looney-Tunes-Wiki-logo.png'
   },
@@ -136,7 +120,6 @@ const wikis: Wiki[] = [
     id: 'mega-man-wiki',
     name: 'Mega Man Wiki',
     baseUrl: 'https://megamanwiki.com',
-    apiUrl: 'https://megamanwiki.com/w/api.php',
     mainPage: 'Main_Page',
     logo: 'https://cdn.grifkuba.net/thumb/a/a2/Mega-Man-Wiki-logo.png/100px-Mega-Man-Wiki-logo.png'
   },
@@ -144,7 +127,6 @@ const wikis: Wiki[] = [
     id: 'power-master-wiki',
     name: 'Power Master Wiki',
     baseUrl: 'https://powermasterwiki.com',
-    apiUrl: 'https://powermasterwiki.com/w/api.php',
     mainPage: 'Main_Page',
     logo: 'https://cdn.grifkuba.net/thumb/d/d8/Power-Master-Wiki-logo.png/100px-Power-Master-Wiki-logo.png'
   },
@@ -152,7 +134,6 @@ const wikis: Wiki[] = [
     id: 'spongebob-wiki',
     name: 'SpongeBob Wiki',
     baseUrl: 'https://spongebobwiki.org',
-    apiUrl: 'https://spongebobwiki.org/w/api.php',
     mainPage: 'Main_Page',
     logo: 'https://cdn.grifkuba.net/thumb/d/d0/SpongeBob-Wiki-logo.png/100px-SpongeBob-Wiki-logo.png'
   },

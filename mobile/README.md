@@ -11,24 +11,27 @@ This Expo project ports the core “Sites We Host” experience from the Next.js
    ```
 2. Run the Expo development server:
    ```bash
-   npm start
+   npm run start
    ```
 3. Launch on a device of your choice:
    - press `a` for Android emulator / device
    - press `i` for iOS simulator (macOS)
    - scan the QR code with Expo Go on a physical device
 
-> **Note:** Because this project imports TypeScript modules from `../src`, Metro is configured to watch the workspace root. If you see module resolution issues, make sure the repository root remains adjacent to this `mobile` directory.
+> **Note:** Because this project imports TypeScript modules from `../src`, Metro watches the workspace root. If the default port is already taken, add `-- --port 8090` (or another open port) after the start command when you run it.
 
 ## Project Structure
 
-- `App.tsx` – navigation container and shared theme values.
-- `src/screens/HomeScreen.tsx` – wiki grid, partner links, and volunteer CTA.
+- `App.tsx` – bottom-tab navigation hosting home, tickets, and socials stacks.
+- `src/screens/HomeScreen.tsx` – wiki grid and volunteer CTA.
 - `src/screens/WikiDetailScreen.tsx` – detail view with outbound links and metadata.
+- `src/screens/TicketsScreen.tsx` – ticket list with refresh and quick status context.
+- `src/screens/NewTicketScreen.tsx` – native form for opening new support tickets.
+- `src/screens/SocialsScreen.tsx` – social icon cards plus an inline contact form tied to `addMessage`.
 - `metro.config.js` / `babel.config.js` – allow the mobile app to resolve shared code from `../src`.
 
 ## Next Steps
 
-- Add tabs or drawers for tickets/contact flows once those web routes are solidified.
+- Expand the support area with ticket detail view/editing and message threads.
 - Introduce offline caching once a real API replaces the mocked data.
 - Style refinements: typography scaling, dark/light theming, animation polish.

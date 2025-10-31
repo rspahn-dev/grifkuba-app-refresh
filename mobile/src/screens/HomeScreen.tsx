@@ -14,9 +14,9 @@ import {
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { Wiki } from '@shared/lib/types';
 import { getWikis } from '@shared/lib/data';
-import type { RootStackParamList } from '../../App';
+import type { HomeStackParamList } from '../../App';
 
-type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
+type HomeScreenProps = NativeStackScreenProps<HomeStackParamList, 'Home'>;
 
 export default function HomeScreen({ navigation }: HomeScreenProps) {
   const [wikis, setWikis] = useState<Wiki[]>([]);
@@ -76,25 +76,22 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
         numColumns={2}
         columnWrapperStyle={styles.columnWrapper}
         contentContainerStyle={styles.listContent}
-        ListHeaderComponent={
-          <View style={styles.actionsContainer}>
+        ListFooterComponent={
+          <View style={styles.footerContainer}>
+            <Text style={styles.footerHeading}>Become a Volunteer</Text>
+            <Text style={styles.footerBody}>
+              We are a volunteer-run collective. Share your skills to help maintain infrastructure,
+              support hosted communities, and launch new initiatives.
+            </Text>
             <TouchableOpacity
-              style={styles.primaryAction}
-              onPress={() => openExternalLink('https://switcher.gg/')}
-            >
-              <Text style={styles.actionLabel}>Visit Switcher.gg</Text>
-              <Text style={styles.actionSubLabel}>Partner Community</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.secondaryAction}
+              style={styles.footerButton}
               onPress={() =>
                 openExternalLink(
                   'https://docs.google.com/forms/d/e/1FAIpQLSckYJy5j49HP7SOLpq_PIhCv31Yu1okpVPETQCSdqR6g3Bl2A/viewform?usp=sf_link'
                 )
               }
             >
-              <Text style={styles.actionLabel}>Become a Volunteer</Text>
-              <Text style={styles.actionSubLabel}>Help maintain the network</Text>
+              <Text style={styles.footerButtonText}>Complete the Volunteer Form</Text>
             </TouchableOpacity>
           </View>
         }
@@ -185,32 +182,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 22
   },
-  actionsContainer: {
-    marginBottom: 16
-  },
-  primaryAction: {
-    backgroundColor: '#1d4ed8',
-    borderRadius: 16,
-    paddingVertical: 14,
-    paddingHorizontal: 16,
-    marginBottom: 12
-  },
-  secondaryAction: {
-    backgroundColor: '#22c55e',
-    borderRadius: 16,
-    paddingVertical: 14,
-    paddingHorizontal: 16
-  },
-  actionLabel: {
-    color: '#f8fafc',
-    fontSize: 18,
-    fontWeight: '700'
-  },
-  actionSubLabel: {
-    color: '#e2e8f0',
-    fontSize: 14,
-    marginTop: 4
-  },
   errorText: {
     color: '#f87171',
     textAlign: 'center',
@@ -220,5 +191,40 @@ const styles = StyleSheet.create({
     color: '#94a3b8',
     textAlign: 'center',
     marginTop: 24
+  },
+  footerContainer: {
+    marginTop: 24,
+    marginBottom: 56,
+    backgroundColor: '#0f172a',
+    borderRadius: 16,
+    padding: 20,
+    borderWidth: 1,
+    borderColor: '#1e293b'
+  },
+  footerHeading: {
+    color: '#38bdf8',
+    fontSize: 20,
+    fontWeight: '700',
+    textAlign: 'center',
+    marginBottom: 8
+  },
+  footerBody: {
+    color: '#cbd5f5',
+    fontSize: 14,
+    lineHeight: 20,
+    textAlign: 'center'
+  },
+  footerButton: {
+    marginTop: 16,
+    backgroundColor: '#22c55e',
+    borderRadius: 14,
+    paddingVertical: 14,
+    paddingHorizontal: 18
+  },
+  footerButtonText: {
+    color: '#0b1220',
+    fontWeight: '700',
+    fontSize: 16,
+    textAlign: 'center'
   }
 });
