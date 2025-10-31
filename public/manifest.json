@@ -1,0 +1,21 @@
+{
+  "name": "Grifkuba Hub",
+  "short_name": "Grifkuba Hub",
+  "description": "Your central place for Grifkuba wikis and community support.",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111118",
+  "theme_color": "#4f46e5"
+}
